@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ShoppingCart } from "lucide-react";
-
+import Image from "next/image";
 type Props = {
   id: number;
   title: string;
@@ -13,11 +13,13 @@ export default function ProductCard({ id, title, price, image }: Props) {
     <div className="bg-white border rounded-lg shadow-sm hover:shadow-md transition flex flex-col">
       {/* Link wrapper for image and title */}
       <Link href={`/product/${id}`} className="block p-4">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-40 object-cover rounded-md mb-4"
-        />
+        <Image
+  src={image}
+  alt={title}
+  width={300}
+  height={300}
+  className="w-full h-auto object-cover rounded"
+/>
         <h3 className="text-sm font-semibold text-gray-800 mb-1">{title}</h3>
         <p className="text-indigo-600 font-bold">₹{price}</p>
       </Link>
