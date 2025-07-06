@@ -1,37 +1,30 @@
-"use client";
+import Link from "next/link";
+import { ShoppingCart } from "lucide-react";
 
-type ProductCardProps = {
+type Props = {
   id: number;
   title: string;
   price: number;
   image: string;
 };
 
-export default function ProductCard({
-  id,
-  title,
-  price,
-  image,
-}: ProductCardProps) {
+export default function ProductCard({ id, title, price, image }: Props) {
   return (
-    <div className="flex flex-col bg-white border rounded-lg shadow-sm p-4 hover:shadow-md transition">
-      {/* product image */}
-      <img
-        src={image}
-        alt={title}
-        className="w-full h-48 object-cover rounded-md mb-4"
-      />
+    <div className="bg-white border rounded-lg shadow-sm hover:shadow-md transition flex flex-col">
+      {/* Link wrapper for image and title */}
+      <Link href={`/product/${id}`} className="block p-4">
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-40 object-cover rounded-md mb-4"
+        />
+        <h3 className="text-sm font-semibold text-gray-800 mb-1">{title}</h3>
+        <p className="text-indigo-600 font-bold">₹{price}</p>
+      </Link>
 
-      {/* title */}
-      <h3 className="text-sm font-semibold text-gray-800 mb-1 line-clamp-2">
-        {title}
-      </h3>
-
-      {/* price */}
-      <p className="text-indigo-600 font-bold mb-2">₹{price}</p>
-
-      {/* add‑to‑cart */}
-      <button className="mt-auto bg-indigo-600 hover:bg-indigo-700 text-white text-sm py-2 rounded-md">
+      {/* Button (not navigating) */}
+      <button className="mt-auto w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 flex items-center justify-center gap-2 text-sm rounded-b-lg">
+        <ShoppingCart className="w-4 h-4" />
         Add to Cart
       </button>
     </div>
