@@ -4,4 +4,4 @@ A responsive e-commerce frontend built using **Next.js** and **Tailwind CSS** as
 
 ## 🚀 Live Demo
 
-🔗 [Live Site on Vercel](https://your-vercel-url.vercel.app)
+🔗 [Live Site on Vercel](https://vercel.com/vidya-s-projects-85e901d7/whatbytes-frontend)
